@@ -60,15 +60,13 @@ export const Navbar = () => {
                                 redirectUri: 'https://nft-memezzz.surge.sh/callback',
                             })
 
-                            // try {
-                            //     const data = await uauth.loginWithPopup()
-                            //     console.log(data)
-                            //     dispatch(fillUD(data.idToken.wallet_address));
-                            // } catch (error) {
-                            //     console.error(error)
-                            // }
-                            dispatch(fillUD('0x14Ee166DFC569EAe2bf77B08a6e430A8aCE40615'));
-
+                            try {
+                                const data = await uauth.loginWithPopup()
+                                console.log(data)
+                                dispatch(fillUD(data.idToken.wallet_address));
+                            } catch (error) {
+                                console.error(error)
+                            }
                         }
                         }>Log in with Unstoppable Domains</button>}
                     </div>
