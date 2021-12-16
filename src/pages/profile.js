@@ -22,6 +22,7 @@ export const Profile = () => {
         <Navbar />
         <div className="bg-dark text-warning m-2 p-3" style={{ minHeight: "90vh" }}>
             <h1>Your NFT Memes</h1>
+            <p>Your address: {userAdress}</p>
             <hr className="bg-warning" />
             {networkId !== 100 && userAdress !== null && <div className="alert alert-danger mt-2" role="alert">
                             <AlertFillIcon verticalAlign="middle" size={12} /> Please, configure and <a rel='noreferrer'

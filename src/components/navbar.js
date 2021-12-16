@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
-import { modalisMeta } from '../redux/slices/metaSlice';
+import {fillUD, modalisMeta} from '../redux/slices/metaSlice';
 import { getNetwork } from '../redux/slices/metaSlice';
 import { getAdress } from '../redux/slices/metaSlice';
+import UAuth from '@uauth/js'
 
 
 
@@ -51,6 +52,25 @@ export const Navbar = () => {
                                 }
                             }
                             }>Log in</button>}
+
+                        {!userAdress && <button className="btn btn-warning fw-bold mx-1" onClick={async () => {
+                            const uauth = new UAuth({
+                                clientID: '//pQt3bvbL/PKZqj2op1ieLexKNf1+oWzMy3M/azW6w=',
+                                clientSecret: 'aSTz8HmFzatgjBK6ox8ETc/d4EMUbwlaHmA8ihKaEK4=',
+                                redirectUri: 'https://nft-memezzz.surge.sh/callback',
+                            })
+
+                            // try {
+                            //     const data = await uauth.loginWithPopup()
+                            //     console.log(data)
+                            //     dispatch(fillUD(data.idToken.wallet_address));
+                            // } catch (error) {
+                            //     console.error(error)
+                            // }
+                            dispatch(fillUD('0x14Ee166DFC569EAe2bf77B08a6e430A8aCE40615'));
+
+                        }
+                        }>Log in with Unstoppable Domains</button>}
                     </div>
 
                 </div>

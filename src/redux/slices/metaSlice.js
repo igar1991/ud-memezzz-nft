@@ -6,7 +6,7 @@ export const getAdress = createAsyncThunk('meta/getAdress',
     async function (_, { rejectWithValue }) {
         try {
             const provider = new providers.Web3Provider(window.ethereum, 'any');
-            
+
             const addresses = await provider.send("eth_requestAccounts", []);
 
             return addresses[0]
@@ -16,6 +16,12 @@ export const getAdress = createAsyncThunk('meta/getAdress',
     }
 )
 
+
+export const fillUD = createAsyncThunk('meta/fillUD',
+    async function (data, { rejectWithValue }) {
+        return data;
+    }
+)
 
 export const metaSlice = createSlice({
     name: "meta",
@@ -42,6 +48,14 @@ export const metaSlice = createSlice({
         [getAdress.fulfilled]: (state, action) => {
             state.userAdress = action.payload
             console.log("загрузка закончена МЕТАМАСК")
+        },
+        [fillUD.fulfilled]: (state, action) => {
+            console.log(state, action)
+            console.log("fillUD fulfilled")
+
+            state.userAdress = action.payload
+            state.networkId=100
+
         },
         [getAdress.rejected]: (state, action) => {
             state.status = "error"
