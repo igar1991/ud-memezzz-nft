@@ -6,9 +6,9 @@ Project name: NFT Meme Creator
 
 Public repo: https://github.com/igar1991/ud-memezzz-nft
 
-Video demo: 
+Video demo: https://disk.yandex.com/i/uGEyOGJ71msrlQ
 
-Deployed project demo: 
+Deployed project demo: https://nft-memezzz.surge.sh
 
 UnstoppableDomain email: game-course@yandex.com
 
